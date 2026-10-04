@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sukhoi TUDM | 20th Anniversary 2007–2027</title>
+<style>
+:root{
+ --gold:#e2bf63;--blue:#071827;--blue2:#0b2439;--ink:#03070c;
+ --muted:#aebdca;--line:rgba(226,191,99,.32)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--ink);color:#fff;overflow-x:hidden}
+a{color:inherit}
+#loader{position:fixed;inset:0;background:#02060a;z-index:100;display:flex;align-items:center;justify-content:center;transition:opacity .8s}
+.loader-inner{text-align:center}.loader-inner img{width:90px;animation:pulse 1.6s infinite}
+.loader-inner p{margin-top:15px;letter-spacing:4px;font-size:11px;color:#9eacb8}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.65}}
+nav{position:fixed;top:0;left:0;right:0;z-index:30;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(1,7,12,.72);backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,191,99,.16)}
+.logo{font-weight:900;letter-spacing:3px}.logo b{color:var(--gold)}
+.navlinks a{font-size:11px;letter-spacing:1.5px;text-decoration:none;margin-left:22px;color:#d6e0e7}
+.navlinks a:hover{color:var(--gold)}
+.sound{border:1px solid var(--line);background:#ffffff08;color:#fff;padding:8px 10px;border-radius:4px;font-size:10px;cursor:pointer;margin-left:18px}
+.hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;padding:100px 7% 50px;overflow:hidden;background:#061321}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,#02070df2 0%,#02070db0 38%,#02070d20 75%),url("sukhoi_hero.jpeg") center/cover;transform:scale(1.04);animation:heroZoom 16s ease-in-out infinite alternate}
+@keyframes heroZoom{to{transform:scale(1.10)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#03070c 0%,transparent 30%),radial-gradient(circle at 70% 50%,transparent 0 18%,rgba(0,0,0,.25) 60%);pointer-events:none}
+.scan{position:absolute;inset:0;background:linear-gradient(transparent 49%,rgba(226,191,99,.08) 50%,transparent 51%);background-size:100% 9px;opacity:.12;z-index:1}
+.hero-content{position:relative;z-index:3;max-width:800px}
+.eyebrow{letter-spacing:5px;font-size:11px;color:#d2dde5;margin-bottom:18px}
+.logos{display:flex;align-items:center;gap:12px;margin-bottom:22px}.logos img{width:68px;height:68px;object-fit:contain}
+h1{font-size:clamp(54px,9vw,110px);line-height:.86;letter-spacing:4px}
+.gold{color:var(--gold)}.subtitle{font-size:clamp(16px,2vw,25px);letter-spacing:6px;margin-top:18px}
+.years{font-size:clamp(28px,4vw,44px);font-weight:800;margin:8px 0 12px}
+.tag{font-style:italic;color:#bfccd5;font-size:18px}
+.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 18px;border:1px solid var(--gold);text-decoration:none;font-size:11px;letter-spacing:2px;background:#0003}
+.btn.fill{background:var(--gold);color:#07111a}
+.jet-label{position:absolute;right:6%;bottom:13%;z-index:3;font-size:10px;letter-spacing:3px;color:#c8d3da}
+section{padding:90px 7%}.section-head{max-width:760px;margin-bottom:34px}.kicker{color:var(--gold);letter-spacing:3px;font-size:10px}.title{font-size:clamp(30px,4vw,48px);margin:7px 0}.desc{color:var(--muted)}
+.count-section{background:linear-gradient(180deg,#071727,#06101a)}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1000px}
+.count-box{background:#ffffff06;border:1px solid var(--line);border-radius:8px;text-align:center;padding:25px 10px;box-shadow:0 10px 40px #0005}
+.num{font-size:clamp(38px,6vw,70px);font-weight:900}.label{font-size:10px;letter-spacing:3px;color:#9eacb8}
+.event-date{margin-top:22px;color:#d5dee4;font-size:13px}.event-date b{color:var(--gold)}
+.timeline{position:relative;max-width:1000px;margin-top:35px}.timeline:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:1px;background:var(--line)}
+.titem{position:relative;padding:0 0 35px 60px}.dot{position:absolute;left:15px;top:4px;width:15px;height:15px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #d8b35a1c}.tyear{color:var(--gold);font-weight:900;font-size:24px}.titem h3{margin:3px 0 4px}.titem p{color:var(--muted);font-size:14px;max-width:650px}
+.legacy{background:#050d15}.legacy-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}.legacy img{width:100%;max-width:430px;display:block;margin:auto;filter:drop-shadow(0 20px 30px #000)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.stat{padding:18px;border-left:2px solid var(--gold);background:#ffffff05}.stat strong{display:block;font-size:32px}.stat span{font-size:10px;letter-spacing:1px;color:var(--muted)}
+.gallery{background:#061321}.ggrid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}.ggrid img{width:100%;height:390px;object-fit:cover;border-radius:8px;border:1px solid #ffffff12}.ggrid .second{height:390px}
+.video-card{margin-top:25px;border:1px solid #ffffff14;background:linear-gradient(135deg,#091a2a,#03080d);min-height:180px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
+.play{width:62px;height:62px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--gold);font-size:24px}
+.message{background:linear-gradient(135deg,#071827,#02070d)}.message-box{max-width:850px;border-left:2px solid var(--gold);padding:20px 28px}.message-box p{font-size:20px;line-height:1.7;color:#d5dee4}
+footer{text-align:center;padding:35px 20px;background:#020509;color:#7e8d98;font-size:10px;letter-spacing:2px}
+.reveal{opacity:0;transform:translateY(25px);transition:all .8s}.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){
+ .navlinks a{display:none}.hero{min-height:760px;background-position:62% center}.jet-label{display:none}
+ .count{grid-template-columns:repeat(2,1fr)}.legacy-grid,.ggrid{grid-template-columns:1fr}.ggrid img,.ggrid .second{height:270px}
+ .stats{grid-template-columns:1fr}.logos img{width:55px;height:55px}
+}
+</style>
+</head>
+<body>
+<div id="loader"><div class="loader-inner"><img src="squadron_badge.png"><p>PREPARING 20 YEARS OF LEGACY</p></div></div>
+
+<nav>
+ <div class="logo">SUKHOI <b>20</b></div>
+ <div class="navlinks">
+  <a href="#countdown">COUNTDOWN</a><a href="#journey">JOURNEY</a><a href="#legacy">LEGACY</a><a href="#gallery">GALLERY</a>
+  <button class="sound" id="soundBtn">◉ AMBIENCE OFF</button>
+ </div>
+</nav>
+
+<header class="hero">
+ <div class="hero-bg"></div><div class="scan"></div>
+ <div class="hero-content">
+  <div class="eyebrow">TENTERA UDARA DIRAJA MALAYSIA · 12 SKUADRON</div>
+  <div class="logos"><img src="tudm_crest.png"><img src="squadron_badge.png"></div>
+  <h1>20<sup>TH</sup><br><span class="gold">ANNIVERSARY</span></h1>
+  <div class="subtitle">SUKHOI TUDM</div>
+  <div class="years">2007 — 2027</div>
+  <div class="tag">Two Decades of Strength, Service & Excellence</div>
+  <div class="hero-actions"><a class="btn fill" href="#countdown">COUNTDOWN</a><a class="btn" href="#journey">EXPLORE OUR JOURNEY</a></div>
+ </div>
+ <div class="jet-label">SU-30MKM · AIR POWER · 20 YEARS</div>
+</header>
+
+<section id="countdown" class="count-section reveal">
+ <div class="section-head"><div class="kicker">THE MOMENT APPROACHES</div><div class="title">COUNTDOWN TO THE CELEBRATION</div><div class="desc">20 – 24 APRIL 2027 · Malaysia</div></div>
+ <div class="count">
+  <div class="count-box"><div class="num" id="days">00</div><div class="label">DAYS</div></div>
+  <div class="count-box"><div class="num" id="hours">00</div><div class="label">HOURS</div></div>
+  <div class="count-box"><div class="num" id="minutes">00</div><div class="label">MINUTES</div></div>
+  <div class="count-box"><div class="num" id="seconds">00</div><div class="label">SECONDS</div></div>
+ </div>
+ <div class="event-date">Official celebration window: <b>20–24 April 2027</b></div>
+</section>
+
+<section id="journey" class="reveal">
+ <div class="section-head"><div class="kicker">2007 → 2027</div><div class="title">OUR JOURNEY</div><div class="desc">Two decades of dedication, readiness and continuous pursuit of excellence.</div></div>
+ <div class="timeline">
+  <div class="titem"><div class="dot"></div><div class="tyear">2007</div><h3>THE BEGINNING</h3><p>Permulaan era Sukhoi TUDM dan lembaran baharu dalam sejarah keupayaan udara negara.</p></div>
+  <div class="titem"><div class="dot"></div><div class="tyear">2017</div><h3>A DECADE OF SERVICE</h3><p>Sepuluh tahun pengalaman, latihan, operasi dan pembentukan generasi warga yang berkemahiran.</p></div>
+  <div class="titem"><div class="dot"></div><div class="tyear">2027</div><h3>20 YEARS OF LEGACY</h3><p>Dua dekad perkhidmatan — satu legasi yang dibina oleh dedikasi, disiplin dan semangat untuk negara.</p></div>
+ </div>
+</section>
+
+<section id="legacy" class="legacy reveal">
+ <div class="legacy-grid">
+  <div>
+   <div class="kicker">THE LEGACY</div><div class="title">20 YEARS OF SERVICE</div>
+   <p class="desc">Sukhoi TUDM · 2007–2027</p>
+   <p style="margin-top:18px;color:#c6d1d9">Dua dekad bukan sekadar angka. Ia adalah himpunan pengalaman, pengorbanan, kesiagaan, kerja berpasukan dan komitmen warga yang memastikan keupayaan udara terus dipelihara.</p>
+   <div class="stats"><div class="stat"><strong>20</strong><span>YEARS</span></div><div class="stat"><strong>2007</strong><span>BEGINNING</span></div><div class="stat"><strong>2027</strong><span>MILESTONE</span></div></div>
+  </div>
+  <img src="squadron_badge.png" alt="12 Skuadron">
+ </div>
+</section>
+
+<section id="gallery" class="gallery reveal">
+ <div class="section-head"><div class="kicker">VISUAL ARCHIVE</div><div class="title">SUKHOI IN ACTION</div><div class="desc">Strength · Precision · Air Power</div></div>
+ <div class="ggrid"><img src="sukhoi_hero.jpeg" alt="Su-30MKM"><img class="second" src="sukhoi_airshow.jpeg" alt="Su-30MKM airshow"></div>
+ <div class="video-card"><div><div class="play">▶</div><h3>ANNIVERSARY VIDEO</h3><p style="color:#9eacb8">Ruang ini sedia untuk video rasmi 20th Anniversary.</p><p style="font-size:11px;color:#74838f;margin-top:7px">Gantikan dengan fail video MP4 apabila sudah tersedia.</p></div></div>
+</section>
+
+<section class="message reveal">
+ <div class="section-head"><div class="kicker">A MESSAGE FOR THE LEGACY</div><div class="title">FROM 2007 TO 2027</div></div>
+ <div class="message-box"><p>“Twenty years of service. Twenty years of dedication. One enduring commitment — to serve the nation with excellence.”</p></div>
+</section>
+
+<footer>20TH ANNIVERSARY SUKHOI TUDM · 2007 — 2027 · 12 SKUADRON</footer>
+
+<script>
+// ======== COUNTDOWN ========
+// Tukar tarikh ini jika tarikh rasmi berubah.
+// Format: YYYY-MM-DDTHH:MM:SS+08:00
+const target = new Date("2027-04-20T00:00:00+08:00").getTime();
+function pad(n){return String(n).padStart(2,"0")}
+function countdown(){
+ let x=Math.max(0,target-Date.now());
+ document.getElementById("days").textContent=pad(Math.floor(x/86400000));
+ document.getElementById("hours").textContent=pad(Math.floor(x%86400000/3600000));
+ document.getElementById("minutes").textContent=pad(Math.floor(x%3600000/60000));
+ document.getElementById("seconds").textContent=pad(Math.floor(x%60000/1000));
+}
+countdown();setInterval(countdown,1000);
+
+// ======== INTRO + SCROLL REVEAL ========
+window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").style.opacity="0",700));
+setTimeout(()=>document.getElementById("loader").remove(),1600);
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+
+// ======== OPTIONAL AMBIENCE ========
+// Browser tidak memainkan audio automatik. Klik butang untuk hidup/mati.
+// Bunyi dihasilkan secara ringan menggunakan Web Audio API.
+let audioCtx=null,osc=null,gain=null,on=false;
+document.getElementById("soundBtn").onclick=()=>{
+ if(!on){
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  osc=audioCtx.createOscillator();gain=audioCtx.createGain();
+  osc.type="sine";osc.frequency.value=55;gain.gain.value=.018;
+  osc.connect(gain).connect(audioCtx.destination);osc.start();
+  on=true;document.getElementById("soundBtn").textContent="◉ AMBIENCE ON";
+ }else{
+  osc.stop();audioCtx.close();on=false;
+  document.getElementById("soundBtn").textContent="◉ AMBIENCE OFF";
+ }
+};
+</script>
+</body>
+</html>
